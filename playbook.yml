@@ -6,5 +6,5 @@
   tasks:
     - name: Print a message
       ansible.builtin.debug:
-        msg: Hello World!
+        msg: "{{ message if message is defined else 'Hello World!' }}"
 ...
