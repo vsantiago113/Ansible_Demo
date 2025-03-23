@@ -1,0 +1,8 @@
+---
+- name: Display a demo message
+  ansible.builtin.debug:
+    msg: I am a demo message from Demo Role
+
+- name: Var from AAP Job Template Survey
+  ansible.builtin.debug:
+    msg: "{{ survey_var if survey_var is defined else 'No variables from AAP Job Template Survey have been passed!' }}"

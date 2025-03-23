@@ -1,0 +1,18 @@
+---
+- name: Ensure ansible_facts used by role
+  setup:
+    gather_subset: min
+  when: not ansible_facts.keys() | list |
+    intersect(__demo_role_required_facts) == __demo_role_required_facts
+
+- name: Set platform/version specific variables
+  include_vars: "{{ __demo_role_vars_file }}"
+  loop:
+    - "{{ ansible_facts['system'] }}.yml"
+    - "{{ ansible_facts['os_family'] }}.yml"
+    - "{{ ansible_facts['distribution'] }}.yml"
+    - "{{ ansible_facts['distribution'] }}_{{ ansible_facts['distribution_major_version'] }}.yml"
+    - "{{ ansible_facts['distribution'] }}_{{ ansible_facts['distribution_version'] }}.yml"
+  vars:
+    __demo_role_vars_file: "{{ role_path }}/vars/{{ item }}"
+  when: __demo_role_vars_file is file

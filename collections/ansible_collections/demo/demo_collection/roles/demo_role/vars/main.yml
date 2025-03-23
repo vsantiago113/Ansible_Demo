@@ -1,0 +1,7 @@
+---
+__demo_role_required_facts:
+    - system
+    - os_family
+    - distribution
+    - distribution_major_version
+    - distribution_version

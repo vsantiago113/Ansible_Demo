@@ -1,0 +1,7 @@
+---
+- name: I am Playbook 3
+  hosts: all
+  gather_facts: false
+  roles:
+    - role: demo.demo_collection.demo_role
+...

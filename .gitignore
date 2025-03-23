@@ -145,11 +145,11 @@ dmypy.json
 
 # Tower runtime roles
 # roles/**
-roles/*
-!roles/requirements.yml
-collections/*
-!collections/requirements.yml
-ansible_collections/
+# roles/*
+# !roles/requirements.yml
+# collections/*
+# !collections/requirements.yml
+# ansible_collections/
 
 # Try tyo avoid any secrets, certs or plain-text passwords
 *pwd*
@@ -184,6 +184,3 @@ ansible_collections/
 
 # macOS
 .DS_Store
-
-# Git
-.git/*
